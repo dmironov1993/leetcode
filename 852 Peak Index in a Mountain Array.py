@@ -3,8 +3,7 @@ import sys
 
 class Solution:
     def peakIndexInMountainArray(self, A: List[int]) -> int:
-# First algorithmic solution based on QuickSort algorithm with
-# Hoare partition
+# First algorithmic solution based on QuickSort algorithm with Hoare partition
         arr = A.copy()
         sys.setrecursionlimit(15000)
 
