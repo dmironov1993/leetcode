@@ -10,7 +10,7 @@ class Solution:
 
         # Hoare partition
         def Partition(A, p, r):
-            x = A[p]
+           x = A[p]
            i = p - 1
            j = r + 1
            while True:
