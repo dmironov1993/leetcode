@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr  3 17:07:21 2019
-
-@author: macbookpro
-"""
+# https://leetcode.com/problems/peak-index-in-a-mountain-array/
 
 class Solution:
     def peakIndexInMountainArray(self, A: List[int]) -> int:
@@ -49,9 +43,11 @@ class Solution:
                 idx = i
         return idx
 
-# Second solution (straight forward)    
+# Second solution (straight forward)  
+"""
         k = 0
         for i in range(1,len(A)):
             if A[k] < A[i]:
                 k = i
         return k
+"""
