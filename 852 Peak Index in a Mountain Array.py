@@ -1,11 +1,11 @@
 # https://leetcode.com/problems/peak-index-in-a-mountain-array/
+import sys
 
 class Solution:
     def peakIndexInMountainArray(self, A: List[int]) -> int:
 # First algorithmic solution based on QuickSort algorithm with
 # Hoare partition
         arr = A.copy()
-        import sys
         sys.setrecursionlimit(15000)
 
         # Hoare partition
