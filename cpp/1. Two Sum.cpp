@@ -2,7 +2,7 @@
 class Solution {
     
     bool canSubtract(int a, int b) {
-        return (b >= 0 && a >= INT_MIN + b) || (b < 0 && a - b <= INT_MAX + b);
+        return (b >= 0 && a >= INT_MIN + b) || (b < 0 && a <= INT_MAX + b);
     }
     
 public:
