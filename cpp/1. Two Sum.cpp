@@ -1,4 +1,4 @@
-//Second solution
+//Second solution (правильно решение, учитывает переполнение. Например, 1, INT_MAX, INT_MAX/2, INT_MIN/2
 class Solution {
     
     bool canSubtract(int a, int b) {
@@ -21,7 +21,7 @@ public:
     }
 };
 
-//First solution
+//First solution выдаст неправильное решение при налиции переполнения. Например, 1, INT_MAX, INT_MAX/2, INT_MIN/2
 class Solution {
 public:
     vector<int> twoSum(const vector<int>& a, int target) {
