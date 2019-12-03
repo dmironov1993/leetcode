@@ -36,3 +36,18 @@ public:
         }
     }
 };
+
+
+//Third solution (similar to those above but more elegant)
+//Taken from https://www.youtube.com/watch?v=yVkWvWpHXhc
+class Solution {
+public:
+    int missingNumber(const vector<int>& a) {
+        int n = (int)a.size(); //max 3 037 000 499
+        long long sum = n* (n + 1LL) / 2;
+        for (int v: a) {
+            sum -= v;
+        }
+        return (int)sum;
+    }
+};
