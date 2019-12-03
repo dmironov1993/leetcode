@@ -51,3 +51,24 @@ public:
         return (int)sum;
     }
 };
+
+
+//Fourth solution
+//Taken from https://www.youtube.com/watch?v=yVkWvWpHXhc
+class Solution {
+public:
+    int missingNumber(vector<int>& a) {
+        int n = (int)a.size();
+        for (int i = 0; i < n; i++) {
+            while (a[i] != n && a[i] != i) {
+                swap(a[i], a[a[i]]);
+            } 
+        }
+        for (int i = 0; i < n; i++) {
+            if (a[i] == n) {
+                return i; //there is no number i
+            }
+        }
+        return n;
+    }
+};
