@@ -1,4 +1,6 @@
 //O(nlog(n))
+//Runtime: 68 ms and Memory Usage: 11 MB
+//Passes all LeetCode tests
 class Solution {
 public:
     int maximumProduct(vector<int>& a) {
