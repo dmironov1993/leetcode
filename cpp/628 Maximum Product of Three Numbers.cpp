@@ -1,3 +1,40 @@
+//The task - https://leetcode.com/problems/maximum-product-of-three-numbers/
+//Solution: https://www.youtube.com/watch?v=psLyGsina4Y
+
+//Straightforward solution
+class Solution {
+public:
+    int maximumProduct(const vector<int>& a) {
+        int max1 = INT_MIN; //the largest
+        int max2 = INT_MIN;
+        int max3 = INT_MIN;
+        int min1 = INT_MAX; //the smallest
+        int min2 = INT_MAX;
+        for (int v : a) {
+            if (v > max1) {
+                max3 = max2;
+                max2 = max1;
+                max1 = v;
+            } else if (v > max2) {
+                max3 = max2;
+                max2 = v;
+            } else if (v > max3) {
+                max3 = v;
+            }
+            if (v < min1) {
+                min2 = min1;
+                min1 = v;
+            } else if (v < min2) {
+                min2 = v;
+            }
+        }
+        return max(min1 * min2 * max1, max1 * max2 * max3);
+    }
+};
+
+
+
+
 //Solution with priority_queue
 class Solution {
 public:
@@ -126,4 +163,3 @@ public:
         return ans;
     }
 };
-
