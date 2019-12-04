@@ -104,6 +104,34 @@ public:
 
 
 
+//Multiset solution
+class Solution {
+public:
+    int maximumProduct(vector<int>& a) {
+        multiset<int> max3;
+        multiset<int> min2;
+        for (int v : a) {
+            max3.insert(v);
+            if (max3.size() > 3) {
+                max3.erase(max3.begin());
+            }
+            min2.insert(v);
+            if (min2.size() > 2) {
+                min2.erase(--min2.end());
+            }
+        }
+        int a0 = *min2.begin();
+        int a1 = *++min2.begin();
+        int am3 = *max3.begin();
+        int am2 = *++max3.begin();
+        int am1 = *++++max3.begin();
+        return max(a0 * a1 * am1, am3 * am2 * am1);
+    }
+};
+
+
+
+
 //O(nlog(n))
 //Runtime: 68 ms and Memory Usage: 11 MB
 //Passes all LeetCode tests
