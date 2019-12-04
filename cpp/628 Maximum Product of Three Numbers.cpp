@@ -1,7 +1,24 @@
 //The task - https://leetcode.com/problems/maximum-product-of-three-numbers/
 //Solution: https://www.youtube.com/watch?v=psLyGsina4Y
 
-//Straightforward solution
+//Straightforward solution 1
+class Solution {
+public:
+    int maximumProduct(vector<int>& a) {
+        int n = (int)a.size();
+        swap(a[n-1], *max_element(a.begin(), a.end()));
+        swap(a[n-2], *max_element(a.begin(), a.end() - 1));
+        swap(a[n-3], *max_element(a.begin(), a.end() - 2));
+        swap(a[0], *min_element(a.begin(), a.end()));
+        swap(a[1], *min_element(a.begin()+1, a.end()));
+        return max(a[0] * a[1] * a[n-1], a[n-3] * a[n-2] * a[n-1]);
+    }
+};
+
+
+
+
+//Straightforward solution 2
 class Solution {
 public:
     int maximumProduct(const vector<int>& a) {
