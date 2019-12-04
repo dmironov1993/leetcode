@@ -1,4 +1,24 @@
-
+//Hybrid of Bubble sort
+//Runtime: 1588 ms and Memory Usage: 10.9 MB
+//Passes all LeetCode tests
+class Solution {
+public:
+    int maximumProduct(vector<int>& a) {
+        for (int i = 0; i < (int)a.size(); i++) {
+            int min = a[i];
+            int minI = i;
+            for (int j = i+1; j < (int)a.size(); j++) {
+                if (a[j] < min) {
+                    min = a[j];
+                    minI = j;
+                }
+            }
+            swap(a[i],a[minI]);
+        }
+        int sz = (int)a.size();
+        return max(a[0]*a[1]*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
+    }
+};
 
 //Bubble sort
 //It's correct but does not pass time-limit constraints
