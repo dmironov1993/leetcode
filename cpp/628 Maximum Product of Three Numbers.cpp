@@ -1,3 +1,19 @@
+//Solution with the use of nth_element
+class Solution {
+public:
+    int maximumProduct(vector<int>& a) {
+        nth_element(a.begin(), a.begin() + 1, a.end());
+        int a0 = a[0];
+        int a1 = a[1];
+        nth_element(a.begin(), a.end()-3, a.end());
+        sort(a.end() - 3, a.end());
+        int sz = (int)a.size();
+        return max(a0*a1*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
+    }
+};
+
+
+
 //O(nlog(n))
 //Runtime: 68 ms and Memory Usage: 11 MB
 //Passes all LeetCode tests
@@ -9,6 +25,8 @@ public:
         return max(a[0]*a[1]*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
     }
 };
+
+
 
 //Hybrid of Bubble sort
 //Runtime: 1588 ms and Memory Usage: 10.9 MB
@@ -32,6 +50,8 @@ public:
     }
 };
 
+
+
 //Bubble sort
 //It's correct but does not pass time-limit constraints
 class Solution {
@@ -48,6 +68,7 @@ public:
         return max(a[0]*a[1]*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
     }
 };
+
 
 
 //Naive solutions O(n^3)
