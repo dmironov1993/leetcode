@@ -1,3 +1,38 @@
+//Solution with priority_queue
+class Solution {
+public:
+    int maximumProduct(vector<int>& a) {
+        priority_queue<int, vector<int>, greater<int>> maxim;
+        priority_queue<int> minim;
+        for (int v: a) {
+            maxim.push(v);
+            if (maxim.size() > 3) {
+                maxim.pop();
+            }
+            minim.push(v);
+            if (minim.size() > 2) {
+                minim.pop();
+            }
+        }
+        //max1 >= max2 >= max3
+        int max3 = maxim.top();
+        maxim.pop();
+        int max2 = maxim.top();
+        maxim.pop();
+        int max1 = maxim.top();
+
+        //min2 >= min1
+        int min2 = minim.top();
+        minim.pop();
+        int min1 = minim.top();
+            
+        return max(min1 * min2 * max1, max1 * max2 * max3);
+    }
+};
+
+
+
+
 //Solution with the use of nth_element
 class Solution {
 public:
@@ -14,6 +49,7 @@ public:
 
 
 
+
 //O(nlog(n))
 //Runtime: 68 ms and Memory Usage: 11 MB
 //Passes all LeetCode tests
@@ -25,6 +61,7 @@ public:
         return max(a[0]*a[1]*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
     }
 };
+
 
 
 
@@ -52,6 +89,7 @@ public:
 
 
 
+
 //Bubble sort
 //It's correct but does not pass time-limit constraints
 class Solution {
@@ -68,6 +106,7 @@ public:
         return max(a[0]*a[1]*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
     }
 };
+
 
 
 
