@@ -1,3 +1,13 @@
+//O(nlog(n))
+class Solution {
+public:
+    int maximumProduct(vector<int>& a) {
+        sort(a.begin(), a.end());
+        int sz = (int)a.size();
+        return max(a[0]*a[1]*a[sz-1], a[sz-3]*a[sz-2]*a[sz-1]);
+    }
+};
+
 //Hybrid of Bubble sort
 //Runtime: 1588 ms and Memory Usage: 10.9 MB
 //Passes all LeetCode tests
