@@ -98,3 +98,46 @@ public:
 // Solution 2 taken from
 // https://www.youtube.com/watch?v=DYjgEOyiCXQ&list=PLES6U-jjEXscLKgGQkLglfLn7myfyGtjj&index=97
 
+class Solution {
+public:
+    vector<int> shortestToChar(const string s, char c) {
+        vector<int> res(s.size(), 0);
+        int pos = 0;
+        for (int i = 0; i < (int)s.size(); i++) {
+            if (s[i] == c) {
+                pos = i;
+                break;
+            }
+        }
+        for (int i = 1; i <= pos; i++) {
+            res[pos - i] = i;
+        }
+        for (int i = pos + 1; i < (int)s.size(); i++) {
+            if (s[i] == c) {
+                if (i > pos + 1) {
+                    int val = 1;
+                    int i1 = pos + 1;
+                    int i2 = i - 1;
+                    while (true) {
+                        res[i1] = val;
+                        if (i1 == i2) {
+                            break;
+                        }
+                        i1++;
+                        res[i2] = val;
+                        if (i1 == i2) {
+                            break;
+                        }
+                        i2--;
+                        val++;
+                    }
+                }
+                pos = i;
+            }
+        }
+        for (int i = pos + 1; i < (int)s.size(); i++) {
+            res[i] = i - pos;
+        }
+        return res;
+    }
+};
